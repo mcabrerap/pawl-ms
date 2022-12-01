@@ -7,6 +7,7 @@ const app = express()
 const port = config.get('server.port')
 const host = config.get('server.host')
 const router = require('./src/routes/router')
+require('./src/database/mongo.database')
 
 app.use(cors()).use(express.json()).use(router)
 app.listen(port, () => {
