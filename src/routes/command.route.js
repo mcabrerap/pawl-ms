@@ -31,7 +31,7 @@ router.put('/', async (req, res) => {
   log.info('PUT /pawl/v1/api/command')
   const { body } = req
   try {
-    const response = await Command.update({}, body)
+    const response = await Command.updateOne({}, body)
     res.status(201).send(response)
   } catch (error) {
     log.error(error)
