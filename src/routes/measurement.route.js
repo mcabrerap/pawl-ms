@@ -17,4 +17,15 @@ router.post('/', async (req, res) => {
   }
 })
 
+router.delete('/', async (req, res) => {
+  log.info('DELETE /pawl/v1/api/measurement')
+  try {
+    await Measurement.deleteMany()
+    res.status(200).send()
+  } catch (error) {
+    log.error(error)
+    res.status(500).send(error)
+  }
+})
+
 module.exports = router
